@@ -1,0 +1,5 @@
+name "cubo"
+description "Ninja generator for cs"
+authors "dao"
+copyright "Copyright © 2012-2016 Orfeo Da Vià"
+license "MIT"
