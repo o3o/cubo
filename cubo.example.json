@@ -1,0 +1,20 @@
+{
+   "name": "Depot",
+   "description": "A Depot Library",
+   "copyright": "Copyright © 2018, Orefe",
+   "homepage": "",
+   "authors": ["Orfeo"],
+   "license": "BSD 3-clause",
+   "targetType": "library",
+   "targetPath": "bin",
+   "sdk" : "4.7",
+
+   "libs": [ "System.Data.dll", "YamlDotNet.dll", "log4net.dll"],
+   "sourceFiles": [],
+   "dependencies": {
+      "Exception": { "version": "0.3.1", "url" : "git@gitlab.com:ml_cs/Exception.git"},
+      "Unstandard": { "version": "1.1.0", "url" : "git@gitlab.com:o3o/Unstandard.git"}
+   }
+}
+
+
