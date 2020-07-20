@@ -25,7 +25,7 @@ void makeMakefile(JSONValue json) {
    dest.writeln();
 
    dest.writeln("$(NAME): $(SRC)");
-   dest.writeln("\tmcs $(CSFLAG) $(REFS) -o:$@ $(SRC)");
+   dest.writeln("\tmcs $(CSFLAG) $(REFS) -out:$@ $(RECURSE)");
    dest.writeln();
 
    JSONValue ut = getUnitTest(json);
