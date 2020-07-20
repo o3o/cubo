@@ -6,10 +6,7 @@ import std.json : JSONValue;
 import std.getopt;
 import cubo.git;
 import cubo.ninja : makeNinja;
-
-struct Option {
-   string file = "ninja";
-}
+import cubo.make : makeMakefile;
 
 void main(string[] args) {
    bool verbose;
@@ -17,7 +14,6 @@ void main(string[] args) {
    bool dry;
    string generate = "ninja";
    string proxyFile = "cubo.json";
-   Option c;
 
    auto opt = getopt(args, "verbose|v", "Verbose", &verbose,
          "clean|c", "Delete package directory", &clean,
@@ -44,14 +40,12 @@ void main(string[] args) {
          clone(j);
       }
 
-      if (c.file == "ninja") {
+      if (generate == "ninja") {
          makeNinja(j);
-         /+
-      } else if (c.file == "mak") {
-         makeMakefile(j, c);
-      } else if (c.file == "tup") {
-         makeTup(j, c);
-         +/
+      } else if (generate == "mak") {
+         makeMakefile(j);
+      } else if (generate == "tup") {
+         writeln("To Do");
       }
    }
 }

@@ -27,7 +27,7 @@ void makeNinja(JSONValue json) {
    dest.writeln("   command = mcs $csflag $refs -out:$out $recurse $in");
    dest.writefln("build $name: compile %-(%s %)", src);
 
-   JSONValue ut= getUnitTest(json);
+   JSONValue ut = getUnitTest(json);
    if (!ut.isNull) {
       dest.writeln();
       dest.writefln("name_test = %s", ut.getTargetName);
@@ -44,61 +44,9 @@ void makeNinja(JSONValue json) {
       dest.writeln("build test: run $name_test");
    }
 
-
    dest.writeln();
    dest.writeln("rule tagscmd");
    dest.writeln("   command = ctags $in");
    dest.writeln();
    dest.writefln("build tags: tagscmd %-(%s %)", src);
 }
-
-string[] getRefs(JSONValue json) {
-   string[] list;
-   if ("libs" in json) {
-      JSONValue[] libs = json["libs"].get!(JSONValue[]);
-      foreach (n; libs) {
-         list ~= n.str;
-      }
-   }
-   return list;
-}
-
-unittest {
-   import std.json : parseJSON;
-
-   string[] r = getRefs(parseJSON(`{ "libs": ["a", "b", "c"]}`));
-   assert(r[0] == "a");
-}
-
-JSONValue getUnitTest(JSONValue json) {
-   JSONValue ut;
-   if ("configurations" in json) {
-      JSONValue[] conf = json["configurations"].get!(JSONValue[]);
-      foreach (value; conf) {
-         if (value["name"].get!string == "unittest") {
-            return value;
-         }
-      }
-   }
-   return ut;
-}
-
-unittest {
-   import std.json : parseJSON;
-
-   JSONValue j = getUnitTest(parseJSON(`{ "libs": ["a", "b", "c"]}`));
-   assert(j.isNull);
-   JSONValue ut = getUnitTest(parseJSON(`{
-            "configurations": [
-            {
-            "name": "unittest",
-            "targetType": "exe",
-            "targetPath": "bin",
-            "sdk" : "4.7"
-            }
-            ]
-
-            }`));
-   assert(!ut.isNull);
-}
-
