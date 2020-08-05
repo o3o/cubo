@@ -1,0 +1,32 @@
+{
+    "name": "AppExample",
+    "description": "AppExample",
+    "copyright": "Copyright © 2020, Orfeo Da Via",
+    "homepage": "",
+    "authors": [
+        "Orfeo",
+        "Samuele"
+    ],
+    "license": "Boost",
+    "targetType": "exe",
+    "targetPath": "bin",
+    "targetName": "app.exe",
+    "sdk": "4.8",
+    "libs": [
+        "System.Data.dll",
+        "log4net.dll"
+    ],
+    "sourceFiles": [],
+    "configurations": [
+        {
+            "name": "unittest",
+            "targetType": "exe",
+            "targetPath": "bin",
+            "libs": [
+                "nunitlite.dll",
+                "nunit.framework.dll",
+                "NSubstitute.dll"
+            ]
+        }
+    ]
+}

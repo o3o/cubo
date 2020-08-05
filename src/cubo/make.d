@@ -25,7 +25,7 @@ void makeMakefile(JSONValue json) {
    dest.writeln();
 
    dest.writeln("$(NAME): $(SRC)");
-   dest.writeln("\tmcs $(CSFLAG) $(REFS) -out:$@ $(RECURSE)");
+   dest.writeln("\tmcs $(CSFLAG) $(REFS) -out:$@ $(RECURSE) $^");
    dest.writeln();
 
    JSONValue ut = getUnitTest(json);
@@ -43,7 +43,7 @@ void makeMakefile(JSONValue json) {
       dest.writeln();
 
       dest.writeln("$(NAME_TEST): $(SRC)");
-      dest.writeln("\tmcs $(CSFLAG_TEST) $(REFS_TEST) $(REFS) -out:$@ $(RECURSE) $(RECURSE_TEST)");
+      dest.writeln("\tmcs $(CSFLAG_TEST) $(REFS_TEST) $(REFS) -out:$@ $(RECURSE) $(RECURSE_TEST) $^");
       dest.writeln();
    }
    dest.writeln("tags: $(SRC)");

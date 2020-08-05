@@ -39,6 +39,7 @@ void makeNinja(JSONValue json) {
       dest.writeln("rule run");
       dest.writeln("   command = mono $in");
       dest.writeln();
+      dest.writeln("build build: phony $name");
       dest.writeln("build build-test: phony $name_test");
       dest.writefln("build $name_test: compile-test %-(%s %)", src);
       dest.writeln("build test: run $name_test");
