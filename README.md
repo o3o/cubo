@@ -1,5 +1,5 @@
 # Cubo
-A (meta) build system with multiple  backends (make, ninja, tup, custom) for C# application.
+A (meta) build system with multiple  backends (make, ninja, tup, custom) for C# application inspired by [Dub](https://github.com/dlang/dub).
 
 
 ## Usage
@@ -7,7 +7,7 @@ A (meta) build system with multiple  backends (make, ninja, tup, custom) for C# 
 - [Precompiled binaries for windows & linux](https://github.com/o3o/cubo/releases/)
 - [Archlinux package]()
 
-2. Create a `cubo.json` file in your Dub project. It should look like this:
+2. Create a `cubo.json` file in your C# project. It should look like this:
 
 ```json
 {
