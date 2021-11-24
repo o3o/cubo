@@ -5,7 +5,7 @@ A (meta) build system with multiple  backends (make, ninja, tup, custom) for C# 
 ## Usage
 1. Install `cubo`
 - [Precompiled binaries for windows & linux](https://github.com/o3o/cubo/releases/)
-- [Archlinux package]()
+- [Archlinux package](https://github.com/o3o/cuboPackage)
 
 2. Create a `cubo.json` file in your C# project. It should look like this:
 
